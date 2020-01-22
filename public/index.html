@@ -1,17 +1,23 @@
-<html ng-app="demoApp">
-<head>
-	<title>
-		Demo
-	</title>
-	<script src="//code.angularjs.org/1.3.0-rc.1/angular.min.js"></script>
-	<script src="main.js"></script>
-</head>
-<body>
-	<div ng-controller="mainController">
-		<p>This is a very simple HTML document</p>
-		<p>It only has two paragraphs.</p>
-		<p>{{testString}}</p>
-		<input id="fileSelect" type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" /> 
-	</div>
-</body>
-</html>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload.min.js"></script>
+<script src="main.js"></script>
+
+<div ng-app="MyApp" ng-controller="MyController">
+    <input type="file" ngf-select="SelectFile($file)" />
+    <input type="button" value="Upload" ng-click="Upload()" />
+    <hr />
+    <table id="tblCustomers" cellpadding="0" cellspacing="0" ng-show="IsVisible">
+        <tr>
+            <th>Customer Id</th>
+            <th>Name</th>
+            <th>Country</th>
+        </tr>
+        <tbody ng-repeat="m in Customers">
+            <tr>
+                <td>{{m.CustomerId}}</td>
+                <td>{{m.Name}}</td>
+                <td>{{m.Country}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
